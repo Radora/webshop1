@@ -10,8 +10,8 @@
                 <!-- Grid column -->
                 <div class="col-12 text-center col-md-1 text-md-end">
                     <!-- Content -->
-                    <img src="/wp-content/themes/webshop-theme/assets/images/logo-footer-mueller-grossmann-small.svg"
-                         alt="Mueller Grossmann Logo" title="Mueller Grossmann Logo"
+                    <img src="/wp-content/themes/webshop-theme/assets/images/logo-footer-small.svg"
+                         alt="Site logo" title="Site logo"
                          class="footer-imprint__logo img-responsive hidden-xs"/>
                 </div>
                 <!-- Grid column -->

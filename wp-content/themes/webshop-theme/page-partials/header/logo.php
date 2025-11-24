@@ -6,7 +6,7 @@
 			echo $my_home_url
 		?>">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/WMG_Logo_komplett_4c.svg"
-			     class="img-responsive logo__img pt-1 w-auto" title="Weingut Mueller Grossmann"  alt="Weingut Mueller Grossmann"/>
+			     class="img-responsive logo__img pt-1 w-auto" title="Webshop"  alt="Webshop"/>
 		</a>
 	</div>
 </div>

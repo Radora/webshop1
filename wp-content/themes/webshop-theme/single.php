@@ -15,9 +15,6 @@ $more = 0;       // Set (inside the loop) to display content above the more tag.
 
 ?>
 
-<?php wp_redirect('https://www.mueller-grossmann.at/', 301);
-exit; ?>
-
     <div id="single-post-header" class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">

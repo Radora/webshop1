@@ -26,7 +26,7 @@ function register_enjoyorbiteStylesAndJS() {
 
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bootstrapjs', get_template_directory_uri() . "/assets/js/bootstrap.bundle.min.js", array('jquery'), null, true );
-    wp_enqueue_script( 'customjs', get_template_directory_uri() . "/assets/js/mueller-grossmann.js", array('jquery'), null, true );
+    wp_enqueue_script( 'customjs', get_template_directory_uri() . "/assets/js/theme.js", array('jquery'), null, true );
     wp_enqueue_script( 'mobile-nav-js', get_template_directory_uri() . "/assets/js/mobile-navigation.js", array(), '1.0', true );
     wp_enqueue_script( 'shop-isotope-js', get_template_directory_uri() . "/assets/js/isotope.min.js", array(), '1.0', true );
     wp_enqueue_script( 'mg-shop-js', get_template_directory_uri() . "/assets/js/mg-shop.js", array(), '1.0', true );
@@ -52,7 +52,7 @@ function mg_login_logo() { ?>
     <style type="text/css">
         body.login { background: white; }
         #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/logo-mueller-grossmann.svg);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo-main.png);
             height: 86px; width: 145px; background-size: 145px 86px; background-repeat: no-repeat; padding-bottom: 30px;
         }
     </style>

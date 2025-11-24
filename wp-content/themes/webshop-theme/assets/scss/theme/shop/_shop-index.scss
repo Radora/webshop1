@@ -1,0 +1,121 @@
+.shop-header {
+  color: black;
+}
+
+.dropdown-btn {
+  min-width: 140px;
+  @include transition(350ms)
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  top:      44%;
+  right:    $spacer/2;
+}
+
+.products {
+
+  //// Add to cart button styling
+  .add_to_cart_button {
+	font-size:        0 !important;
+	overflow:         hidden;
+	background-color: $white !important;
+
+	&:hover {
+	  background-color: $white !important;
+	}
+
+	&::after {
+	  font-family: "Font Awesome 5 Pro";
+	  font-size:   20px;
+	  content:     "\f217";
+	  font-weight: 300;
+	  color:       $red;
+	  display:     block;
+	  margin:      1px !important;
+	}
+
+  }
+}
+
+.product-overlay {
+  background-color: $gray-300;
+
+  img {
+	max-height: 100%;
+	width:      auto !important;
+  }
+
+  &:after {
+	content:        "";
+	display:        block;
+	padding-bottom: 100%;
+  }
+}
+
+.product-offer-tag {
+  font-size: 10px;
+}
+
+.product-category-tag {
+  font-size: 10px;
+
+  a {
+	text-decoration: none;
+	color:           black;
+  }
+}
+
+.products .woocommerce-Price-amount {
+  font-size:    .857rem;
+  padding-left: 0;
+  color:        $black;
+  font-weight:  bold;
+}
+
+.woocommerce-loop-product__title {
+  color:          $black;
+  text-transform: uppercase;
+  font-weight:    bold;
+}
+
+@include media-breakpoint-up(xl) {
+  .woocommerce ul.products li.product:nth-child(2n) {
+	margin-top: $spacer !important;
+  }
+}
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+  margin: 0 1% 2.992em 1%;
+  width: 23%;
+}
+
+// Overriding product items width set from isotope.js
+/* On screens that are 992px or less */
+@include media-breakpoint-between(md, xl) {
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+	width:  31.5%;
+	margin: 0 0.916% 2.992em 0.916% !important;
+  }
+  .woocommerce ul.products li.product:nth-child(3n+2) {
+	margin-top: $spacer !important;
+  }
+
+}
+
+@include media-breakpoint-between(sm, md) {
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+	width:  48% !important;
+	margin: 0 1% 2.992em 1% !important;
+  }
+  .woocommerce ul.products li.product:nth-child(2n) {
+	margin-top: $spacer !important;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+	width:  100% !important;
+	margin: 0 0 2.992em 0 !important;
+  }
+}

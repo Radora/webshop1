@@ -1,0 +1,56 @@
+//=======================================================
+//HEADER GENERAL
+//==============================================================
+
+.header, .header-logo {
+  z-index: 999;
+  
+  .header--scrolled {
+	border-bottom: 1px solid $gray-100;
+  }
+
+}
+
+// Making carousel images same size
+.carousel-item img {
+  height: 100vh;
+}
+
+// Removing hamburger from mega-menu
+.mega-toggle-animated-box {
+  display: none !important;
+}
+
+// Header navigation buttons
+#mega-menu-wrap-header-menu #mega-menu-header-menu > li.mega-menu-item {
+  margin: 0 0 0 20px;
+  
+  > a.mega-menu-link {
+	padding: 2px 5px;
+  }
+
+}
+
+#mega-menu-wrap-header-menu #mega-menu-header-menu li.mega-menu-item-has-children > a.mega-menu-link > span.mega-indicator::after {
+  bottom: 3px;
+}
+
+
+//========================================================
+//LOGO
+//===================================================================
+
+.logo__img {
+  height: 86px!important;
+  max-width: none!important;
+}
+
+.logo-small {
+  display: none;
+  
+  .logo-small__img {
+	height: 60px;
+	width:  60px
+  }
+  
+}

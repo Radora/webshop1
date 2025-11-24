@@ -1,0 +1,40 @@
+//===============================================
+// MAP CONTAINER
+//=================================================
+.footer {
+  margin-top: auto;
+  align-self: flex-end;
+  width:      100vw;
+}
+
+.map {
+  height: 400px
+}
+
+//===================================================
+// FOOTER BAR CONTAINER
+//======================================================
+
+.footer-imprint {
+  height: 80px;
+}
+
+.footer-imprint__logo{
+  max-width: 40px!important;
+}
+
+// Newsletter form
+#mc4wp-form-1{
+  display: inline-block;
+  width: 100%;
+  min-width: 280px;
+  max-width: 360px;
+}
+
+// Footer links styling
+
+// Mail link
+.footer-section a {
+  text-decoration: none;
+}
+

@@ -1,0 +1,50 @@
+// My account page
+.woocommerce-MyAccount-navigation {
+  margin-bottom: 60px;
+
+  ul {
+	margin:  0;
+	padding: 0;
+
+	li {
+	  list-style:    none;
+	  margin-bottom: 10px;
+
+	  a {
+		text-decoration: none;
+		text-transform:  uppercase;
+		color:           $black;
+		font-weight:     bold;
+		padding:         4px 4px 2px 4px;
+		font-size:       $font-size-lg;
+		@include transition(200ms);
+
+		&:hover {
+		  background-color: $green;
+		  color:            $white;
+		}
+	  }
+
+	  &.is-active a {
+		background-color: $green;
+		color:            $white !important;
+	  }
+	}
+
+  }
+
+  @include media-breakpoint-down(md) {
+	text-align: center;
+  }
+
+}
+
+.woocommerce-MyAccount-content {
+
+  font-size: $font-size-lg;
+
+}
+
+mark, .mark {
+  background-color: rgba($primary, 0.2);
+}

@@ -1,0 +1,67 @@
+.single-product {
+
+  del .amount {
+	padding: 0;
+  }
+
+  del .amount, ins .amount {
+
+	font-size: $font-size-lg;
+
+  }
+
+  .quantity {
+
+	input {
+	  line-height:  $btn-line-height;
+	  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+	  border-width: 0 0 1px 0;
+	  border-color: $dark;
+	  min-width:    100px;
+	  margin-right: $spacer;
+	}
+
+  }
+
+  .product_image-background {
+
+	background-image:    url('/wp-content/themes/webshop-theme/assets/img/rebenkreis_single_product.png');
+	background-size:     contain;
+	background-position: center right;
+	background-repeat:   no-repeat;
+	max-height:          450px;
+
+	&:after {
+	  content:        "";
+	  display:        block;
+	  padding-bottom: 100%;
+	}
+
+	.badge-wrap {
+	  z-index: 10;
+	}
+
+	.product_image {
+	  margin-top: -12.5%;
+	}
+  }
+
+  .image-container-stretch {
+	min-height: 200px;
+  }
+
+  .related.products {
+
+	h2 {
+	  margin-bottom: $spacer*2;
+
+	}
+
+  }
+}
+
+@media only screen and (max-width: 851px) and (min-width: 768px)  {
+  .cart .single_add_to_cart_button{
+	margin-top: 15px;
+  }
+}

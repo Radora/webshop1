@@ -1,0 +1,17 @@
+// General
+@import "variables";
+@import "../bootstrap/bootstrap";
+
+@import "general/header";
+@import "general/header-mobile";
+@import "general/footer";
+@import "general/general";
+@import "general/preloader";
+
+// Adjustments
+@import "shop/shop-account";
+@import "shop/shop-index";
+@import "shop/shop-single";
+
+// Utility
+@import "utility/color-extensions";

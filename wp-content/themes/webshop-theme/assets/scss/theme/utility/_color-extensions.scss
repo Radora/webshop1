@@ -1,0 +1,58 @@
+@mixin textcolormix($prefix, $property) {
+  @each $color-name, $color in $colors {
+	.#{$prefix}-#{$color-name} {
+	  #{$property}: $color
+	}
+	.#{$prefix}-#{$color-name} a{
+	  #{$property}: $color
+	}
+	a.#{$prefix}-#{$color-name}{
+	  #{$property}: $color
+	}
+	a.link.#{$prefix}-#{$color-name}{
+	  #{$property}: $color
+	}
+  }
+}
+
+@mixin texthovercolormix($prefix, $property) {
+  @each $color-name, $color in $colors {
+	.#{$prefix}-#{$color-name}:hover {
+	  #{$property}: $color !important;
+	}
+	.#{$prefix}-#{$color-name} a:hover{
+	  #{$property}: $color
+	}
+	a.#{$prefix}-#{$color-name}:hover{
+	  #{$property}: $color !important;
+	}
+	a.link.#{$prefix}-#{$color-name}:hover{
+	  #{$property}: $color
+	}
+  }
+}
+
+@mixin linkcolormix($prefix, $property) {
+  @each $color-name, $color in $colors {
+	.#{$prefix}-#{$color-name} a{
+	  #{$property}: $color !important;
+	}
+  }
+}
+
+@mixin bgcolormix($prefix, $property) {
+  @each $color-name, $color in $colors {
+	.#{$prefix}-#{$color-name} {
+	  #{$property}: $color !important;
+	}
+	.#{$prefix}-hover-#{$color-name}:hover {
+	  #{$property}: $color !important;
+	}
+  }
+}
+
+
+@include linkcolormix('text-link', 'color');
+@include textcolormix('text', 'color');
+@include texthovercolormix('text-hover', 'color');
+@include bgcolormix('bg', 'background-color');

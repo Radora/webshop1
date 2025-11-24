@@ -1,0 +1,116 @@
+// HAMBURGER
+.hamburger-menu {
+  z-index:    1000;
+  cursor:     pointer;
+}
+
+// Overwriting hamburger color
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  background-color: $primary;
+}
+
+.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
+  background-color: $primary;
+}
+
+.mobile-header{
+  z-index: 1000;
+  margin-top: 30px;
+}
+
+.header-icons {
+  z-index:     1000;
+  
+  a &:hover{
+    opacity: 0.7;
+  }
+}
+
+.nav-links {
+  z-index: 999;
+  background-color: $gray-300;
+  transform:        translateY(-100%);
+  transition:       transform $transitionTime ease-in;
+  a {
+    text-decoration: none;
+    letter-spacing:  3px;
+    color:           $black;
+  }
+  li {
+    list-style: none;
+  }
+}
+
+#menu-mobile-header-menue, #menu-mobile-header-menue-english {
+  padding-left: 0;
+  margin-right: 15px;
+}
+
+.menu li a {
+  font-size: 35px;
+}
+
+.sub-menu {
+  margin-left:      0;
+  padding-left:     15px;
+  background-color: $gray-600;
+  max-height:       0;
+  overflow:         hidden;
+  transition:       all 500ms ease-in-out;
+  
+  li a {
+    font-size: 20px;
+    text-transform: none!important;
+  }
+  li:first-child {
+    padding-top: 10px;
+  }
+  li:last-child {
+    padding-bottom: 10px;
+  }
+}
+
+.sub-menu-active {
+  max-height: 500px;
+  margin-bottom: 10px;
+}
+
+.sub-menu-icon {
+  font-size: 40px;
+  cursor:    pointer;
+}
+
+.footer-imprint__container li {
+  margin-top: 5px;
+}
+
+.footer-links{
+  background-color: $gray-300;
+}
+
+// Classes used for animations
+.nav-active {
+  transform: translateY(0%);
+}
+
+.bg__gray {
+  background-color: $gray-300;
+  transition:       $transitionTime;
+}
+
+// ** MEDIA QUERIES ** //
+@media screen and (max-width: 767px) {
+  .menu-mobile-header-menue-container {
+	display: block;
+  }
+}
+
+// Hiding menu and changing header bg-color when screen is resized to desktop view
+@media screen and (min-width: 767px) {
+  .nav-links {
+	transform: translateY(-100%);
+  }
+  .header {
+	background-color: $white;
+  }
+}

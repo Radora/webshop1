@@ -1,0 +1,48 @@
+2025-11-24T14:47:15+00:00 DEBUG #2187 - [New Request] POST /index.php
+2025-11-24T14:47:15+00:00 DEBUG #1716 - [New Request] POST /index.php
+2025-11-24T14:47:15+00:00 DEBUG #2187 - Webhook lock acquired for 'register'.
+2025-11-24T14:47:15+00:00 DEBUG #1716 - Webhook lock acquired for 'register'.
+2025-11-24T14:47:15+00:00 DEBUG #2187 - Webhook operation 'register' started.
+2025-11-24T14:47:15+00:00 DEBUG #1716 - Webhook operation 'register' started.
+2025-11-24T14:47:16+00:00 DEBUG #2187 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-11-24T14:47:16+00:00 ERROR #2187 - Failed to delete webhooks: [Error] Not Found
+2025-11-24T14:47:16+00:00 INFO #2187 - Webhooks deleted.
+2025-11-24T14:47:17+00:00 DEBUG #2187 - POST https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Request Body: {"url":"https:\/\/localhost:8080\/index.php?rest_route=\/paypal\/v1\/incoming","event_types":[{"name":"CHECKOUT.ORDER.APPROVED"},{"name":"CHECKOUT.ORDER.COMPLETED"},{"name":"CHECKOUT.PAYMENT-APPROVAL.REVERSED"},{"name":"PAYMENT.CAPTURE.REFUNDED"},{"name":"PAYMENT.AUTHORIZATION.VOIDED"},{"name":"PAYMENT.CAPTURE.REVERSED"},{"name":"PAYMENT.ORDER.CANCELLED"},{"name":"PAYMENT.CAPTURE.DENIED"},{"name":"PAYMENT.CAPTURE.COMPLETED"},{"name":"VAULT.PAYMENT-TOKEN.CREATED"},{"name":"VAULT.PAYMENT-TOKEN.DELETED"},{"name":"PAYMENT.CAPTURE.PENDING"},{"name":"PAYMENT.SALE.COMPLETED"},{"name":"PAYMENT.SALE.REFUNDED"},{"name":"BILLING.SUBSCRIPTION.CANCELLED"},{"name":"BILLING.PLAN.PRICING-CHANGE.ACTIVATED"},{"name":"CATALOG.PRODUCT.UPDATED"},{"name":"BILLING.PLAN.UPDATED"}]}
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-11-24T14:47:17+00:00 ERROR #2187 - Failed to subscribe webhooks: [Error] Not Found
+2025-11-24T14:47:17+00:00 DEBUG #2187 - Webhook lock released for 'register'.
+2025-11-24T14:47:17+00:00 DEBUG #1716 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-11-24T14:47:17+00:00 ERROR #1716 - Failed to delete webhooks: [Error] Not Found
+2025-11-24T14:47:17+00:00 INFO #1716 - Webhooks deleted.
+2025-11-24T14:47:18+00:00 DEBUG #1716 - POST https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Request Body: {"url":"https:\/\/localhost:8080\/index.php?rest_route=\/paypal\/v1\/incoming","event_types":[{"name":"CHECKOUT.ORDER.APPROVED"},{"name":"CHECKOUT.ORDER.COMPLETED"},{"name":"CHECKOUT.PAYMENT-APPROVAL.REVERSED"},{"name":"PAYMENT.CAPTURE.REFUNDED"},{"name":"PAYMENT.AUTHORIZATION.VOIDED"},{"name":"PAYMENT.CAPTURE.REVERSED"},{"name":"PAYMENT.ORDER.CANCELLED"},{"name":"PAYMENT.CAPTURE.DENIED"},{"name":"PAYMENT.CAPTURE.COMPLETED"},{"name":"VAULT.PAYMENT-TOKEN.CREATED"},{"name":"VAULT.PAYMENT-TOKEN.DELETED"},{"name":"PAYMENT.CAPTURE.PENDING"},{"name":"PAYMENT.SALE.COMPLETED"},{"name":"PAYMENT.SALE.REFUNDED"},{"name":"BILLING.SUBSCRIPTION.CANCELLED"},{"name":"BILLING.PLAN.PRICING-CHANGE.ACTIVATED"},{"name":"CATALOG.PRODUCT.UPDATED"},{"name":"BILLING.PLAN.UPDATED"}]}
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-11-24T14:47:18+00:00 ERROR #1716 - Failed to subscribe webhooks: [Error] Not Found
+2025-11-24T14:47:18+00:00 DEBUG #1716 - Webhook lock released for 'register'.

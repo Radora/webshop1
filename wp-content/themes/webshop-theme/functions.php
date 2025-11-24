@@ -111,3 +111,118 @@ class Mobile_Menu_Walker extends Walker_Nav_Menu {
 // Woocommerce
 //======================================================================
 require_once __DIR__ . '/includes/woocommerce.php';
+
+//======================================================================
+// Bootstrap default pages for a fresh install
+//======================================================================
+function webshop_theme_create_default_pages() {
+    if ( get_option( 'webshop_theme_default_pages_created' ) ) {
+        return;
+    }
+
+    $pages = array(
+        array(
+            'title'    => 'Home',
+            'slug'     => 'home',
+            'template' => 'template-home.php',
+        ),
+        array(
+            'title'    => 'Shop',
+            'slug'     => 'shop',
+            'template' => '',
+        ),
+        array(
+            'title'    => 'News',
+            'slug'     => 'news',
+            'template' => '',
+        ),
+        array(
+            'title'    => 'About',
+            'slug'     => 'about',
+            'template' => '',
+        ),
+        array(
+            'title'    => 'Contact',
+            'slug'     => 'contact',
+            'template' => '',
+        ),
+        array(
+            'title'    => 'Partners',
+            'slug'     => 'partners',
+            'template' => 'template-vertriebspartner.php',
+        ),
+        array(
+            'title'    => 'Cart',
+            'slug'     => 'cart',
+            'template' => '',
+        ),
+        array(
+            'title'    => 'Checkout',
+            'slug'     => 'checkout',
+            'template' => '',
+        ),
+        array(
+            'title'    => 'My Account',
+            'slug'     => 'my-account',
+            'template' => '',
+        ),
+    );
+
+    $created_ids = array();
+
+    foreach ( $pages as $page ) {
+        $existing = get_page_by_path( $page['slug'] );
+        $page_id  = $existing ? $existing->ID : 0;
+
+        if ( ! $page_id ) {
+            $page_id = wp_insert_post(
+                array(
+                    'post_type'    => 'page',
+                    'post_title'   => $page['title'],
+                    'post_name'    => $page['slug'],
+                    'post_status'  => 'publish',
+                    'post_content' => '',
+                )
+            );
+        }
+
+        if ( $page_id && ! empty( $page['template'] ) ) {
+            update_post_meta( $page_id, '_wp_page_template', $page['template'] );
+        }
+
+        if ( $page_id ) {
+            $created_ids[ $page['slug'] ] = $page_id;
+        }
+    }
+
+    if ( ! empty( $created_ids['home'] ) ) {
+        update_option( 'show_on_front', 'page' );
+        update_option( 'page_on_front', $created_ids['home'] );
+    }
+
+    if ( ! empty( $created_ids['news'] ) ) {
+        update_option( 'page_for_posts', $created_ids['news'] );
+    }
+
+    if ( class_exists( 'WooCommerce' ) ) {
+        if ( ! empty( $created_ids['shop'] ) ) {
+            update_option( 'woocommerce_shop_page_id', $created_ids['shop'] );
+        }
+        if ( ! empty( $created_ids['cart'] ) ) {
+            update_option( 'woocommerce_cart_page_id', $created_ids['cart'] );
+        }
+        if ( ! empty( $created_ids['checkout'] ) ) {
+            update_option( 'woocommerce_checkout_page_id', $created_ids['checkout'] );
+        }
+        if ( ! empty( $created_ids['my-account'] ) ) {
+            update_option( 'woocommerce_myaccount_page_id', $created_ids['my-account'] );
+        }
+    }
+
+    update_option( 'webshop_theme_default_pages_created', current_time( 'mysql' ) );
+}
+add_action( 'after_switch_theme', 'webshop_theme_create_default_pages' );
+add_action( 'init', 'webshop_theme_create_default_pages' );
+
+// Hide WP admin toolbar on the front end
+add_filter( 'show_admin_bar', '__return_false' );

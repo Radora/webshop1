@@ -10,45 +10,58 @@
 	 * happen. When this occurs the version of the template file will be bumped and
 	 * the readme will list any important changes.
 	 *
-	 * @see         https://docs.woocommerce.com/document/template-structure/
-	 * @package     WooCommerce\Templates
-	 * @version     3.9.0
-	 */
+ * @see         https://woocommerce.com/document/template-structure/
+ * @package     WooCommerce\Templates
+ * @version     10.3.0
+ */
 
 	if ( ! defined( 'ABSPATH' ) ) {
 		exit;
 	}
 
-	if ( $related_products ) : ?>
+if ( $related_products ) :
+	/**
+	 * Ensure all images of related products are lazy loaded by increasing the
+	 * current media count to WordPress's lazy loading threshold if needed.
+	 * Because wp_increase_content_media_count() is a private function, we
+	 * check for its existence before use.
+	 */
+	if ( function_exists( 'wp_increase_content_media_count' ) ) {
+		$content_media_count = wp_increase_content_media_count( 0 );
+		if ( $content_media_count < wp_omit_loading_attr_threshold() ) {
+			wp_increase_content_media_count( wp_omit_loading_attr_threshold() - $content_media_count );
+		}
+	}
+	?>
 
-        <section class="related products">
+    <section class="related products">
+
+		<?php
+			$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+
+			if ( $heading ) :
+				?>
+                <h2 class="font-size--lg text-gray-dark fw-bold"><?php echo esc_html( $heading ); ?></h2>
+			<?php endif; ?>
+
+		<?php woocommerce_product_loop_start(); ?>
+
+		<?php foreach ( $related_products as $related_product ) : ?>
 
 			<?php
-				$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+			$post_object = get_post( $related_product->get_id() );
 
-				if ( $heading ) :
-					?>
-                    <h2 class="font-size--lg text-gray-dark fw-bold"><?php echo esc_html( $heading ); ?></h2>
-				<?php endif; ?>
+			setup_postdata( $GLOBALS['post'] = $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-			<?php woocommerce_product_loop_start(); ?>
+			wc_get_template_part( 'content', 'product' );
+			?>
 
-			<?php foreach ( $related_products as $related_product ) : ?>
+		<?php endforeach; ?>
 
-				<?php
-				$post_object = get_post( $related_product->get_id() );
+		<?php woocommerce_product_loop_end(); ?>
 
-				setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
-
-				wc_get_template_part( 'content', 'product' );
-				?>
-
-			<?php endforeach; ?>
-
-			<?php woocommerce_product_loop_end(); ?>
-
-        </section>
+    </section>
 	<?php
-	endif;
+endif;
 
-	wp_reset_postdata();
+wp_reset_postdata();

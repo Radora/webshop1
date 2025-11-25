@@ -10,10 +10,10 @@
 	 * happen. When this occurs the version of the template file will be bumped and
 	 * the readme will list any important changes.
 	 *
-	 * @see https://docs.woocommerce.com/document/template-structure/
-	 * @package WooCommerce\Templates
-	 * @version 3.4.0
-	 */
+ * @see https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 8.6.0
+ */
 
 	defined( 'ABSPATH' ) || exit;
 
@@ -26,7 +26,16 @@
 	 * @hooked woocommerce_breadcrumb - 20
 	 * @hooked WC_Structured_Data::generate_website_data() - 30
 	 */
-	do_action( 'woocommerce_before_main_content' );
+do_action( 'woocommerce_before_main_content' );
+
+/**
+ * Hook: woocommerce_shop_loop_header.
+ *
+ * @since 8.6.0
+ *
+ * @hooked woocommerce_product_taxonomy_archive_header - 10
+ */
+do_action( 'woocommerce_shop_loop_header' );
 
 ?>
     <header class="woocommerce-products-header">
